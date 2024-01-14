@@ -221,7 +221,7 @@
             <p class="subtitle" id="subtitle">Software Developer <i class="fas fa-laptop-code"></i></p>
             <img src="cloud.png" alt="img-cloud" class="bottom_cloud" id="cloud-bottom">
         </div>
-    
+
         <style>
             .header-container{
                 height: auto;
@@ -233,13 +233,13 @@
                 width: 150px; 
                 height: auto; 
             }
-    
+
             .top_cloud {
                 top: -40%; 
                 left: 50%; 
                 transform: translateX(-100%); 
             }
-    
+
             .bottom_cloud {
                 bottom: -40%;
                 right: 50%; 
@@ -262,7 +262,7 @@
         });
     </script>
     </header>
-    
+
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
@@ -292,18 +292,18 @@
 }
         </style>
     </nav>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var navLinks = document.querySelectorAll('.navbar-nav a.nav-link');
-    
+
             navLinks.forEach(function (link) {
                 link.addEventListener('click', function (event) {
                     event.preventDefault();
                     var targetId = this.getAttribute('href').substring(1);
 
                     var targetSection = document.getElementById(targetId);
-    
+
                     targetSection.scrollIntoView({
                         behavior: 'smooth'
                     });
@@ -311,7 +311,7 @@
             });
         });
     </script>
-    
+
 
     <section id="about" class="content" aos-once="false">
         <div class="container">
@@ -394,18 +394,18 @@
             border-radius: 8px; 
             transition: background-color 0.3s ease; 
         }
-    
+
         .skill-cell:hover {
             background-color: #f8f9fa; 
         }
-        
+
     .skill-cell {
         border: 2px solid #ddd; 
         padding: 10px; 
         border-radius: 8px; 
         transition: background-color 0.3s ease, box-shadow 0.3s ease; 
     }
-    
+
     .skill-cell:hover {
         background-color: #f8f9fa;
         box-shadow: 0 0 10px rgb(255, 145, 0);
@@ -508,7 +508,5 @@
     });
 </script>
 
-
 </body>
-
 </html>
