@@ -2,9 +2,13 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/dist/fullpage.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manoj's Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -20,6 +24,22 @@
     <link rel="stylesheet" href="styles1.css">
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Color+Emoji&family=Playpen+Sans:wght@300&family=Sacramento&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+integrity="sha512-Hi4I+UQt6L1I7a6cn74M1VFRoGqCEp3E19AFD3AS+a8BD8ftk4KosOgwTlaqYGfRU5Z1W6WH91O/bKOTfehnzA=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new fullpage('#fullpage', {
+            sectionsColor: ['#ffffff', '#ffffff', '#ffffff', '#ffffff'], // Add background colors for each section
+            navigation: true,
+            navigationTooltips: ['Home', 'About', 'Skills', 'Contact'], // Add tooltips for navigation
+            showActiveTooltip: true,
+        });
+    });
+</script>
+
 <script>
     $(document).ready(function(){
         $(".navbar-nav a.nav-link").on('click', function(event) {
@@ -36,11 +56,25 @@
     });
 </script>
 <style>
+    .tilt-container {
+        perspective: 1000px;
+    }
+
+    .tilt-element {
+        transform-style: preserve-3d;
+    }
+
+    .tilt-content {
+        transform: translateZ(50px);
+        backface-visibility: hidden;
+    }
+</style>
+<style>
     /* Add your custom styles here */
     footer {
         background-color: #343a40;
-        color: #000000;
-        padding: 20px 0;
+        color: #686D76;
+        padding:  0px;
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -77,7 +111,7 @@
         .content {
             padding: 80px 0;
             background-color: #ffffff; /* Set background color for sections */
-            margin-bottom: 30px; /* Add some space between sections */
+            margin-bottom: 30px; /* Add sme space between sections */
         }
 
         section h2.section-title {
@@ -89,60 +123,6 @@
             color: #6c757d; /* Bootstrap's secondary text color */
             margin-bottom: 40px;
         }
-
-        /* Contact section styling */
-        #contact {
-            background-color: #343a40; /* Dark background for contact section */
-            color: #ffffff; /* Light text color for contact section */
-        }
-
-        .contact-card {
-            background-color: #007bff; /* Primary color for contact cards */
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .contact-card:hover {
-            transform: scale(1.05);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-        }
-
-        .contact-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #343a40;
-            color: #000000;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .footer-link {
-            color: #007bff; /* Bootstrap's primary color */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-link:hover {
-            color: #0056b3; /* Adjust the color on hover if needed */
-        }
-
         /* Advanced animations */
         @keyframes fadeInUp {
             from {
@@ -179,16 +159,6 @@
             height: 100%;
             /* Add any other styles for particles */
         }
-        #contact {
-            padding: 60px 0; /* Adjust as needed */
-        }
-
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
         .section-title {
         font-size: 3em;
         margin-bottom: 20px;
@@ -199,243 +169,482 @@
         font-size: 1.4em;
         color: #555;
     }
-
-    form {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    .contact{
+        color: #0056b3;
     }
 </style>
-
-
 </head>
 
 <body>
-
-    <header class="top text-center" id="header-container">
-        <div id="particles-js"></div>
-        <div class="container">
-            <img src="cloud.png" alt="img-cloud" class="top_cloud" id="cloud-top">
-            <h1 class="site-title" id="main-title">Manoj's Portfolio</h1>
-            <p class="subtitle" id="subtitle">Software Developer <i class="fas fa-laptop-code"></i></p>
-            <img src="cloud.png" alt="img-cloud" class="bottom_cloud" id="cloud-bottom">
+    <div class="scroll-down-indicator" onclick="scrollToContent()">
+        <div class="mouse">
+            <div class="mouse-dot"></div>
         </div>
-
-        <style>
-            .header-container{
-                height: auto;
-                width: auto;
-            }
-            .top_cloud,
-            .bottom_cloud {
-                position: absolute;
-                width: 150px; 
-                height: auto; 
-            }
-
-            .top_cloud {
-                top: -40%; 
-                left: 50%; 
-                transform: translateX(-100%); 
-            }
-
-            .bottom_cloud {
-                bottom: -40%;
-                right: 50%; 
-                transform: translateX(-100%) scaleX(-1); 
-            }
-        </style>
+        <div class="scroll-down-text"></div>
+    </div>
     <script>
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 }, image: { src: 'img/github.svg', width: 100, height: 100 } },
-                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
-                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
-                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
-            },
-            interactivity: { detect_on: 'canvas', events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } },
-            retina_detect: true
-        });
+        function scrollToContent() {
+            var contentSection = document.getElementById("your-content-section-id");
+            contentSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     </script>
-    </header>
+<header class="top text-center header-container" id="header-container">
+    <div id="particles-js"></div>
+    <div class="container">
+        <img src="cloud.png" alt="img-cloud" class="top_cloud" id="cloud-top">
+        <h1 class="site-title" id="main-title">Manoj's Portfolio</h1>
+        <p class="subtitle" id="subtitle">Software Developer <i class="fas fa-laptop-code"></i></p>
+        <img src="cloud.png" alt="img-cloud" class="bottom_cloud" id="cloud-bottom">
+    </div>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div>
-                <a class="navbar-brand" href="#">Manoj</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="d-none d-lg-block">
-                <a href="#contact" class="neon-button">Hire Me!</a>
-            </div>
-        </div>
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+
+        .top_cloud,
+        .bottom_cloud {
+            width: 150px;
+            height: auto;
+            opacity: 0.8;
+            transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .top_cloud {
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-100%);
+            animation: cloudAnimation 10s linear infinite alternate;
+        }
+
+        .bottom_cloud {
+            position: absolute;
+            bottom: -40%;
+            right: 50%;
+            transform: translateX(-100%) scaleX(-1);
+            animation: cloudAnimation 10s linear infinite alternate-reverse;
+        }
+
+        .site-title,
+        .subtitle {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .site-title.active,
+        .subtitle.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            color: #61dafb;
+            font-size: 20px;
+            animation: bounce 1s infinite alternate;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .top_cloud, .bottom_cloud {
+        position: absolute;
+        width: 150px;
+        height: auto;
+        z-index: 1;
+    }
+
+    .top_cloud {
+        top: -40%;
+        left: 50%;
+        transform: translateX(-100%);
+        animation: cloudAnimation 10s linear infinite alternate;
+    }
+
+    .bottom_cloud {
+        bottom: -40%;
+        right: 50%;
+        transform: translateX(-100%) scaleX(-1);
+        animation: cloudAnimation 10s linear infinite alternate-reverse;
+    }
+    @keyframes cloudAnimation {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+        
+    }
+
+    </style>
         <style>
-            .navbar-footer-bg {
-    background-color: #333;
-    height: 20px; /* Adjust the height as needed */
-    width: 100%;
-}
+            .scroll-down-indicator {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0.8;
+                z-index: 1000;
+                animation: bounce 2s infinite;
+                cursor: pointer;
+            }
+    
+            .mouse {
+                width: 25px;
+                height: 40px;
+                border: 2px solid #fff;
+                border-radius: 15px;
+                position: relative;
+                animation: scroll-move 1.5s ease-in-out infinite;
+            }
+    
+            .mouse-dot {
+                width: 10px;
+                height: 10px;
+                background-color: #fff;
+                position: absolute;
+                border-radius: 50%;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: dot-move 1.5s ease-in-out infinite;
+            }
+    
+            /* New Styling */
+            .scroll-down-text {
+                position: absolute;
+                bottom: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 14px;
+                color: #fff;
+                opacity: 0.6;
+                animation: fade-in-out 2s infinite;
+            }
+    
+            /* Animations */
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0);
+                }
+                40% {
+                    transform: translateY(-15px);
+                }
+                60% {
+                    transform: translateY(-10px);
+                }
+            }
+    
+            @keyframes scroll-move {
+                0%, 100% {
+                    top: 10px;
+                }
+                50% {
+                    top: 20px;
+                }
+            }
+    
+            @keyframes dot-move {
+                0%, 100% {
+                    height: 10px;
+                }
+                50% {
+                    height: 20px;
+                }
+            }
+    
+            @keyframes fade-in-out {
+                0%, 100% {
+                    opacity: 0.6;
+                }
+                50% {
+                    opacity: 1;
+                }
+            }
         </style>
-    </nav>
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var navLinks = document.querySelectorAll('.navbar-nav a.nav-link');
+            const title = document.getElementById('main-title');
+            const subtitle = document.getElementById('subtitle');
 
-            navLinks.forEach(function (link) {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    var targetId = this.getAttribute('href').substring(1);
+            // Add a class to trigger the CSS animations when the page loads
+            title.classList.add('active');
+            subtitle.classList.add('active');
 
-                    var targetSection = document.getElementById(targetId);
-
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 100, density: { enable: true, value_area: 800 } },
+                    color: { value: '#61dafb' },
+                    shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 }, image: { src: 'img/github.svg', width: 100, height: 100 } },
+                    opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0, sync: false } },
+                    size: { value: 4, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                    line_linked: { enable: true, distance: 150, color: '#61dafb', opacity: 0.6, width: 1 },
+                    move: { enable: true, speed: 8, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+                },
+                interactivity: { detect_on: 'canvas', events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } },
+                retina_detect: true
             });
         });
     </script>
+</header>
 
 
-    <section id="about" class="content" aos-once="false">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About Me</h2>
-            <div class="row">
-                <div class="col-lg-6 order-lg-1" data-aos="fade-right">
-                    <div class="about-text">
-                        <p>Welcome to my personal website. I'm Manoj, a dedicated software developer with a passion for crafting elegant and functional Software Products.</p>
-                        <p>My coding journey began in the 8th grade with the aspiration to create games reminiscent of Subway Surfers, Temple Run, and Hill Climb Racing. However, back then, my programming skills were far from reaching that level of complexity.</p>
-                    </div>
+<style>
+    .navbar {
+        display: flex;
+        color:#343a40;
+        font-size: 10px; /* Adjust the font size as needed */
+        justify-content: space-between;
+        align-items: center;
+        background-color: #343a40; /* Adjust the background color as needed */
+        padding: 10px 0; /* Adjust top and bottom padding */
+    }
+
+    .navbar-nav {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-nav li {
+        margin-right: 15px; /* Adjust spacing between items */
+    }
+
+    .navbar-nav a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .navbar-brand,
+    .neon-button {
+        color: white;
+        text-decoration: none;
+    }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="navbar-brand" href="#">Manoj</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <div class="d-none d-lg-block">
+                    <a href="#contact" class="neon-button">Hire Me!</a>
                 </div>
-                <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-                    <img src="IMG_20231110_120028_566.jpg" alt="Profile Photo" class="img-fluid profile-photo">
-                </div>
-                <div class="col-lg-12 order-lg-3" data-aos="fade-up">
-                    <div class="about-text">
-                        <p>To bridge the gap between my ambition and abilities, I decided to specialize in PCM (Physics, Chemistry, Mathematics) during 11th grade. While my peers were immersed in competitive exam preparations, I delved into Java and C++, reserving my focus for board exams.</p>
-                        <p>My philosophy revolves around the belief that 'we reap what we sow.' I prioritize honing my skills over mere rote memorization. After all, the ability to apply knowledge effectively surpasses the art of blindly reproducing facts in exam papers. Now, I'm content and continue my journey of learning, currently delving into the world of Machine Learning. 😄</p>
+            </div>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var navLinks = document.querySelectorAll('.navbar-nav a.nav-link');
+
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+
+                var targetSection = document.getElementById(targetId);
+
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+
+
+<section id="about" class="content" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="row">
+            <div class="col-lg-6 order-lg-1 tilt-container" data-aos="fade-right">
+                <div class="tilt-element">
+                    <div class="about-text tilt-content">
+                        <p data-aos="fade-up" data-aos-delay="200">Welcome to my personal website. I'm Manoj, a
+                            dedicated software developer with a passion for crafting elegant and functional Software
+                            Products.</p>
+                        <p data-aos="fade-up" data-aos-delay="400">My coding journey began in the 8th grade with
+                            the aspiration to create games reminiscent of Subway Surfers, Temple Run, and Hill Climb
+                            Racing. However, back then, my programming skills were far from reaching that level of
+                            complexity.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="skills" class="content bg-light text-center py-16 relative overflow-hidden">
-        <div id="particles-left" class="particles-container-left absolute left-0 top-0"></div>
-        <div class="container mx-auto">
-            <div class="row justify-center">
-                <div class="col-md-8 mb-8" data-aos="fade-up">
-                    <h2 class="section-title text-4xl font-bold mb-6">Tech Stack</h2>
-                    <ul class="list-unstyled">
-                        <li class="mb-6 skill-item" data-aos="flip-left" data-aos-duration="1000" data-aos-anchor="#skills">
-                            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100">
-                                <img src="java.png" alt="Java Logo" class="mr-4 skill-logo">
-                                <strong class="mr-2">Java</strong>
-                                <span class="battery battery-advanced"></span>
-                                <div class="progress-bar w-3/4 bg-blue-500 mx-auto mt-2"></div>
-                            </div>
-                        </li>
-                        <li class="mb-6 skill-item" data-aos="flip-left" data-aos-duration="1000" data-aos-anchor="#skills">
-                            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100">
-                                <img src="c-.png" alt="C++ Logo" class="mr-4 skill-logo">
-                                <strong class="mr-2">C++</strong>
-                                <span class="battery battery-intermediate"></span>
-                                <div class="progress-bar w-2/4 bg-green-500 mx-auto mt-2"></div>
-                            </div>
-                        </li>
-                        <li class="mb-6 skill-item" data-aos="flip-left" data-aos-duration="1000" data-aos-anchor="#skills">
-                            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100">
-                                <img src="python.png" alt="Python Logo" class="mr-4 skill-logo">
-                                <strong class="mr-2">Python</strong>
-                                <span class="battery battery-intermediate"></span>
-                                <div class="progress-bar w-4/4 bg-orange-500 mx-auto mt-2"></div>
-                            </div>
-                        </li>
-                        <li class="mb-6 skill-item" data-aos="flip-left" data-aos-duration="1000" data-aos-anchor="#skills">
-                            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100">
-                                <img src="html-5.png" alt="HTML" class="mr-4 skill-logo">
-                                <strong class="mr-2">HTML</strong>
-                                <span class="battery battery-basic"></span>
-                                <div class="progress-bar w-1/4 bg-red-500 mx-auto mt-2"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item" data-aos="flip-left" data-aos-duration="1000" data-aos-anchor="#skills">
-                            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100">
-                                <img src="machine-learning.png" alt="Machine Learning Logo" class="mr-4 skill-logo">
-                                <strong class="mr-2">Machine Learning</strong>
-                                <span class="battery battery-learning"></span>
-                                <div class="progress-bar w-3/4 bg-purple-500 mx-auto mt-2"></div>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="col-lg-6 order-lg-2 tilt-container" data-aos="fade-left">
+                <div class="tilt-element">
+                    <img src="IMG_20231110_120028_566.jpg" alt="Profile Photo" class="img-fluid profile-photo tilt-content"
+                        data-aos="fade-up" data-aos-delay="200">
+                </div>
+            </div>
+            <div class="col-lg-12 order-lg-3" data-aos="fade-up">
+                <div class="about-text">
+                    <p data-aos="fade-up" data-aos-delay="100">To bridge the gap between my ambition and abilities,
+                        I decided to specialize in PCM (Physics, Chemistry, Mathematics) during 11th grade. While my
+                        peers were immersed in competitive exam preparations, I delved into Java and C++, reserving
+                        my focus for board exams.</p>
+                    <p data-aos="fade-up" data-aos-delay="300">My philosophy revolves around the belief that 'we
+                        reap what we sow.' I prioritize honing my skills over mere rote memorization. After all,
+                        the ability to apply knowledge effectively surpasses the art of blindly reproducing facts
+                        in exam papers.</p>
                 </div>
             </div>
         </div>
-    <style>
-        .skill-cell {
-            border: 2px solid #ddd; 
-            padding: 10px; 
-            border-radius: 8px; 
-            transition: background-color 0.3s ease; 
-        }
+    </div>
+</section>
 
-        .skill-cell:hover {
-            background-color: #f8f9fa; 
-        }
+<!-- Include AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-wFVZ9S7+Po9EL99TfG4QPrA+3U48X9xc2p2sRmpqoPH3jFMBtSnTr/xRI3JmkD10Bp/9lp2a6eSgXtdnYiYflg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        AOS.init();
+    });
+</script>
+
+
+
+<section id="skills" class="content bg-light text-center py-16 relative overflow-hidden" data-aos="fade-up">
+  <div id="particles-left" class="particles-container-left absolute left-0 top-0"></div>
+
+  <div class="container mx-auto">
+    <div class="row justify-center">
+      <div class="col-md-8 mb-8" data-aos="fade-up">
+        <h2 class="section-title text-4xl font-bold mb-6">Tech Stack</h2>
+        <div class="d-flex justify-content-around flex-wrap">
+          <div class="mb-6 skill-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
+              <img src="java.png" alt="Java Logo" class="mr-4 skill-logo">
+              <strong class="mr-2">Java</strong>
+              <span class="battery battery-advanced"></span>
+            </div>
+          </div>
+          <div class="mb-6 skill-item" data-aos="fade-left" data-aos-delay="200">
+            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
+              <img src="c-.png" alt="C++ Logo" class="mr-4 skill-logo">
+              <strong class="mr-2">C++</strong>
+              <span class="battery battery-intermediate"></span>
+            </div>
+          </div>
+          <div class="mb-6 skill-item" data-aos="fade-down" data-aos-delay="300">
+            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
+              <img src="python.png" alt="Python Logo" class="mr-4 skill-logo">
+              <strong class="mr-2">Python</strong>
+              <span class="battery battery-intermediate"></span>
+            </div>
+          </div>
+          <div class="mb-6 skill-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
+              <img src="html-5.png" alt="HTML" class="mr-4 skill-logo">
+              <strong class="mr-2">HTML</strong>
+              <span class="battery battery-basic"></span>
+            </div>
+          </div>
+          <div class="mb-6 skill-item" data-aos="fade-right" data-aos-delay="500">
+            <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
+              <img src="machine-learning.png" alt="Machine Learning Logo" class="mr-4 skill-logo">
+              <strong class="mr-2">Machine Learning</strong>
+              <span class="battery battery-learning"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
     .skill-cell {
-        border: 2px solid #ddd; 
-        padding: 10px; 
-        border-radius: 8px; 
-        transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+      border: 2px solid #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.5s ease;
+      width: 200px; /* Set the width as needed */
+      margin: 10px; /* Adjust margin for spacing */
     }
 
     .skill-cell:hover {
-        background-color: #f8f9fa;
-        box-shadow: 0 0 10px rgb(255, 145, 0);
-        transform: scale(1.05); 
-        transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; 
+      background-color: #ffae00;
+      /* transform: scale(1.1) rotate(3deg); */
     }
-    </style>
-
+  </style>
 </section>
 
+<script>
+    function animateSkill(skill) {
+      anime({
+        targets: skill,
+        rotate: 360,
+        easing: 'easeInOutQuad',
+        duration: 1000
+      });
+    }
+  </script>
 
-<section id="contact" class="content bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-16" data-aos="fade-up">
+<section id="contact" class="content bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-16 mb-6" data-aos="fade-up">
     <div class="container mx-auto">
         <h2 class="section-title text-4xl font-bold mb-8" data-aos="fade-up">Contact</h2>
         <p class="section-description text-lg mb-12" data-aos-delay="200">Let's connect! Feel free to reach out to me:</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div class="mb-8" data-aos="fade-up">
-                <div class="contact-card p-6 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:bg-pink-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105">
+            <div class="mb-8" data-aos="zoom-out-right">
+                <div class="contact-card p-6 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:bg-pink-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="gmail.png" alt="Email Icon" class="contact-icon mb-4 mx-auto">
                     <a href="mailto:itzmk06@gmail.com" class="contact-link text-lg font-semibold hover:underline">Email</a>
                 </div>
             </div>
-            <div class="mb-8" data-aos="fade-up" data-aos-delay="200">
-                <div class="contact-card p-6 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 hover:bg-green-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105">
+            <div class="mb-8" data-aos="zoom-out-up" data-aos-delay="200">
+                <div class="contact-card p-6 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 hover:bg-green-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="linkedin.png" alt="LinkedIn Icon" class="contact-icon mb-4 mx-auto">
                     <a href="https://www.linkedin.com/in/manoj-kumar-m-3a1876263/" class="contact-link text-lg font-semibold hover:underline" target="_blank">LinkedIn Profile</a>
                 </div>
             </div>
-            <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
-                <div class="contact-card p-6 bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gray-900 transition-all duration-300 rounded-lg text-center transform hover:scale-105">
+            <div class="mb-8" data-aos="zoom-out-left" data-aos-delay="400">
+                <div class="contact-card p-6 bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gray-900 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="github.png" alt="GitHub Icon" class="contact-icon mb-4 mx-auto">
                     <a href="https://github.com/itzmk06/" class="contact-link text-lg font-semibold hover:underline" target="_blank">GitHub Profile</a>
                 </div>
@@ -465,9 +674,44 @@
         .contact-link:hover {
             color: #FFD700;
         }
+
+        Additional Animations
+        [data-aos="zoom-out-right"],
+        [data-aos="zoom-out-up"],
+        [data-aos="zoom-out-left"] {
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        [data-aos="zoom-out-right"].aos-animate,
+        [data-aos="zoom-out-up"].aos-animate,
+        [data-aos="zoom-out-left"].aos-animate {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        #contact {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #contact .grid {
+            max-width: 800px; /* Adjust max-width as needed */
+            margin: auto;
+        }
+        [data-aos^="zoom-out"] {
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        [data-aos^="zoom-out"].aos-animate {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
     </style>
 </section>
-
 
 <footer class="bottom text-center py-8 bg-gradient-to-t from-gray-800 via-gray-900 to-black" data-aos="fade-up">
     <div class="container mx-auto">
@@ -500,13 +744,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    AOS.init({
-        duration: 800,
-        anchorPlacement: 'center-bottom',
-        once: false,
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-0YdYUIA+0FuyWny5NErhIMZc5R9i5eGLC9C5THFgS6gDFHuHCeLCJ3TbT5CehZz5TIR1b3oh6HQRXIK0P7d3eg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    AOS.init();
+    $('.tilt-container').tilt({
+        glare: true,
+        maxGlare: 0.2
     });
 </script>
-
 </body>
 </html>
