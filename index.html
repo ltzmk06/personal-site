@@ -2,13 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/dist/fullpage.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manoj's Portfolio</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -24,22 +20,6 @@
     <link rel="stylesheet" href="styles1.css">
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Color+Emoji&family=Playpen+Sans:wght@300&family=Sacramento&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-integrity="sha512-Hi4I+UQt6L1I7a6cn74M1VFRoGqCEp3E19AFD3AS+a8BD8ftk4KosOgwTlaqYGfRU5Z1W6WH91O/bKOTfehnzA=="
-crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        new fullpage('#fullpage', {
-            sectionsColor: ['#ffffff', '#ffffff', '#ffffff', '#ffffff'], // Add background colors for each section
-            navigation: true,
-            navigationTooltips: ['Home', 'About', 'Skills', 'Contact'], // Add tooltips for navigation
-            showActiveTooltip: true,
-        });
-    });
-</script>
-
 <script>
     $(document).ready(function(){
         $(".navbar-nav a.nav-link").on('click', function(event) {
@@ -56,25 +36,11 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     });
 </script>
 <style>
-    .tilt-container {
-        perspective: 1000px;
-    }
-
-    .tilt-element {
-        transform-style: preserve-3d;
-    }
-
-    .tilt-content {
-        transform: translateZ(50px);
-        backface-visibility: hidden;
-    }
-</style>
-<style>
     /* Add your custom styles here */
     footer {
         background-color: #343a40;
-        color: #686D76;
-        padding:  0px;
+        color: #000000;
+        padding: 20px 0;
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -111,7 +77,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         .content {
             padding: 80px 0;
             background-color: #ffffff; /* Set background color for sections */
-            margin-bottom: 30px; /* Add sme space between sections */
+            margin-bottom: 30px; /* Add some space between sections */
         }
 
         section h2.section-title {
@@ -123,6 +89,60 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             color: #6c757d; /* Bootstrap's secondary text color */
             margin-bottom: 40px;
         }
+
+        /* Contact section styling */
+        #contact {
+            background-color: #343a40; /* Dark background for contact section */
+            color: #ffffff; /* Light text color for contact section */
+        }
+
+        .contact-card {
+            background-color: #007bff; /* Primary color for contact cards */
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .contact-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #343a40;
+            color: #000000;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .footer-link {
+            color: #007bff; /* Bootstrap's primary color */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #0056b3; /* Adjust the color on hover if needed */
+        }
+
         /* Advanced animations */
         @keyframes fadeInUp {
             from {
@@ -159,6 +179,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             height: 100%;
             /* Add any other styles for particles */
         }
+        #contact {
+            padding: 60px 0; /* Adjust as needed */
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         .section-title {
         font-size: 3em;
         margin-bottom: 20px;
@@ -169,14 +199,20 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         font-size: 1.4em;
         color: #555;
     }
-    .contact{
-        color: #0056b3;
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 </style>
+
+
 </head>
 
 <body>
-    <div class="scroll-down-indicator" onclick="scrollToContent()">
+    <div id="scroll-down-indicator" class="scroll-down-indicator" onclick="scrollToContent()">
         <div class="mouse">
             <div class="mouse-dot"></div>
         </div>
@@ -189,7 +225,18 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 behavior: 'smooth'
             });
         }
-    </script>
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollDownIndicator = document.getElementById('scroll-down-indicator');
+  
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 0) {
+        scrollDownIndicator.classList.add('hidden');
+      } else {
+        scrollDownIndicator.classList.remove('hidden');
+      }
+    });
+  });
+  </script>
 <header class="top text-center header-container" id="header-container">
     <div id="particles-js"></div>
     <div class="container">
@@ -423,7 +470,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     </script>
 </header>
 
-
 <style>
     .navbar {
         display: flex;
@@ -479,24 +525,25 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     </div>
 </nav>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var navLinks = document.querySelectorAll('.navbar-nav a.nav-link');
 
-        navLinks.forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                var targetId = this.getAttribute('href').substring(1);
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var navLinks = document.querySelectorAll('.navbar-nav a.nav-link');
 
-                var targetSection = document.getElementById(targetId);
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var targetId = this.getAttribute('href').substring(1);
 
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
+                    var targetSection = document.getElementById(targetId);
+
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
         });
-    });
-</script>
+    </script>
 
 
 <section id="about" class="content" data-aos="fade-up">
@@ -518,7 +565,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
             </div>
             <div class="col-lg-6 order-lg-2 tilt-container" data-aos="fade-left">
                 <div class="tilt-element">
-                    <img src="IMG_20231110_120028_566.jpg" alt="Profile Photo" class="img-fluid profile-photo tilt-content"
+                    <img src="pic.jpg" alt="Profile Photo" class="img-fluid profile-photo tilt-content"
                         data-aos="fade-up" data-aos-delay="200">
                 </div>
             </div>
@@ -537,6 +584,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         </div>
     </div>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-wFVZ9S7+Po9EL99TfG4QPrA+3U48X9xc2p2sRmpqoPH3jFMBtSnTr/xRI3JmkD10Bp/9lp2a6eSgXtdnYiYflg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        AOS.init();
+    });
+</script>
 
 <!-- Include AOS JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
@@ -729,14 +786,15 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
         }
 
         .fab:hover {
-            color: #FFD700; /* Change color on hover */
+            color: #FFD700; 
         }
 
         .fab:active {
-            transform: scale(0.95); /* Add a slight scale effect on click */
+            transform: scale(0.95); 
         }
     </style>
 </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -744,16 +802,15 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-    integrity="sha512-0YdYUIA+0FuyWny5NErhIMZc5R9i5eGLC9C5THFgS6gDFHuHCeLCJ3TbT5CehZz5TIR1b3oh6HQRXIK0P7d3eg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script>
-    AOS.init();
-    $('.tilt-container').tilt({
-        glare: true,
-        maxGlare: 0.2
+    <script>
+    AOS.init({
+        duration: 800,
+        anchorPlacement: 'center-bottom',
+        once: false,
     });
 </script>
+
+
 </body>
+
 </html>
