@@ -121,11 +121,12 @@ body {
     animation: fadeIn 2s ease-in;
 }
 
+
+
 .skill-item {
     color: #393E46;
 }
-
-li {
+li{
     color: #393E46;
 }
 
@@ -136,32 +137,27 @@ hr {
     margin: 0 auto;
     color: white;
 }
-
 .section-content {
     background-color: #EEEEEE;
     padding: 120px 0;
     color: #00ADB5;
     position: relative;
 }
-
 .about-text {
     width: 70%; 
     margin: 0 auto;
     padding: 20px; 
     text-align: left; 
 }
-
 .skill-logo {
     width: 50px; 
     height: auto; 
     margin-right: 10px;
 }
-
-li {
+li{
     color: #393E46;
     padding: 20px; 
 }
-
 ul {
     list-style: none;
     padding-left: 0;
@@ -170,6 +166,7 @@ ul {
 ul li {
     padding: 10px 0; 
 }
+
 
 .section-content {
     background-color: #EEEEEE;
@@ -189,16 +186,16 @@ ul li {
     margin-top: 20px;
 }
 
+
 .section-content p strong {
     font-weight: bold;
     padding: 20px;
     color: #3498db; 
 }
-
 #contact {
     background-color: #3498db;
     color: #fff;
-    padding: 0;
+    padding:  0;
     text-align: center;
     position: relative;
 }
@@ -253,6 +250,7 @@ body {
     opacity: 100 !important;
 }
 
+
 .battery:before,
 .battery:after {
     content: '';
@@ -295,6 +293,7 @@ body {
     margin-bottom: 30px;
 }
 
+
 #contact .contact-card {
     background-color: #222; 
     color: #fff; 
@@ -321,7 +320,6 @@ body {
 #contact .contact-link:hover {
     text-decoration: underline;
 }
-
 .navbar-nav a.nav-link {
     cursor: pointer;
     transition: color 0.3s;
@@ -330,7 +328,6 @@ body {
 .navbar-nav a.nav-link:hover {
     color: #3498db;
 }
-
 #particles-js {
     position: absolute;
     width: 100%;
@@ -338,10 +335,10 @@ body {
     z-index: 1;
 }
 
+
 .navbar-brand {
     font-size: 1.5em;
     font-weight: bold;
-    letter-spacing: 2px; 
 }
 
 .navbar-toggler {
@@ -351,6 +348,48 @@ body {
 
 .navbar-toggler-icon {
     background-color: #fff; 
+}
+
+.navbar-nav {
+    font-size: 1.2em;
+}
+
+.nav-item {
+    margin-right: 15px;
+}
+
+.nav-link {
+    position: relative;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #3498db;
+}
+
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+    transition: background-color 0.3s; 
+}
+
+.navbar-toggler:hover {
+    background-color: #3498db; 
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+    border-radius: 2px; 
 }
 
 .navbar-nav {
@@ -415,10 +454,12 @@ body {
 }
 
 @keyframes neon {
-    0%, 100% {
+    0%,
+    100% {
         transform: translate(-2px, -2px);
     }
-    25%, 75% {
+    25%,
+    75% {
         transform: translate(2px, 2px);
     }
 }
@@ -433,6 +474,7 @@ body {
     font-size: 18px;
     color: #333;
 }
+
 
 .profile-photo {
     border-radius: 8px;
@@ -452,6 +494,7 @@ body {
     font-size: 2rem;
 }
 
+
 .skill-cell:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -465,7 +508,6 @@ body {
     position: relative;
     margin-left: 10px;
 }
-
 .aos-init, .aos-animate {
     opacity: 1 !important;
     visibility: visible !important;
@@ -479,7 +521,6 @@ body {
         transform: translateX(100%);
     }
 }
-
 @keyframes moveClouddown {
     0% {
         transform: translateX(100%);
@@ -489,13 +530,14 @@ body {
     }
 }
 
-.top_cloud {
+
+.top_cloud{
     animation: moveCloudup 20s linear infinite;
 }
-
 .bottom_cloud {
     animation: moveClouddown 20s linear infinite;
 }
+
 
 section {
     padding: 80px 0;
@@ -509,7 +551,7 @@ section {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 50px;
-    color: #007bff; 
+    color: #007bff;
 }
 
 .card {
@@ -551,11 +593,13 @@ section {
     background-color: #0056b3;
 }
 
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -566,6 +610,7 @@ section {
     from {
         transform: scale(0);
     }
+
     to {
         transform: scale(1);
     }
@@ -577,6 +622,25 @@ section {
 
 .scale-in {
     animation: scaleIn 1s ease-out;
+}
+
+
+section {
+    padding: 80px 0;
+}
+
+.container {
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #007bff; 
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .section-description {
@@ -616,9 +680,18 @@ section {
     transition: background 0.3s;
 }
 
+.header-container {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; 
+}
 .contact-link:hover {
     background: linear-gradient(to right, #E48586, #916DB3); 
 }
+
 
 @keyframes fadeInUp {
     from {
