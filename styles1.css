@@ -6,6 +6,8 @@
 
 body {
     font-family: 'Merienda', cursive;
+    /* font-family: "Satisfy", cursive; */
+        /* font-family: "Julee", cursive; */
     background: linear-gradient(180deg, #DBE2EF, #DBE2EF); 
     color: #333;
     margin: 0;
@@ -707,4 +709,10 @@ section {
 
 .fade-up {
     animation: fadeInUp 1s ease-out;
+}
+
+footer {
+    /* border-top: 1px solid rgba(3, 0, 0, 0.2); */
+    color: #ffffff;
+    background-color: #333;
 }

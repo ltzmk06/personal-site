@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Manoj's Portfolio</title>
+    <link href="
+https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css
+" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -19,6 +22,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Julee&family=Send+Flowers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Julee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Merienda:wght@300..900&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Merienda:wght@300..900&family=Righteous&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Color+Emoji&family=Playpen+Sans:wght@300&family=Sacramento&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script>
@@ -38,6 +48,7 @@
 </script>
 <style>
     footer {
+            height: 40px;
             padding: 20px 0;
             position: fixed;
             bottom: 0;
@@ -77,7 +88,7 @@
 
         section h2.section-title {
             color: #007bff; 
-            margin-bottom: 30px;
+            margin-bottom: 60px;
         }
 
         section p.section-description {
@@ -120,11 +131,14 @@
         footer {
             padding: 20px 0;
             position: fixed;
-            bottom: 0;
             width: 100%;
             z-index: 1000;
+            bottom:0;
         }
+        footer h2{
 
+            bottom: 10px;
+        }
         .footer-link {
             color: #007bff;
             text-decoration: none;
@@ -252,6 +266,10 @@ document.addEventListener('DOMContentLoaded', function () {
         body {
             margin: 0;
             padding: 0;
+        }
+        #subtitle{
+    font-family: "Satisfy", cursive;
+
         }
 
         .header-container {
@@ -470,14 +488,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     </script>
 </header>
-
 <style>
     .navbar {
+        height: 7vh;
         display: flex;
-        font-size: 10px;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 0; 
+        padding: 10px 0;
+        background-color: #1a202c;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+        font-size: 0.5rem;
     }
 
     .navbar-nav {
@@ -490,47 +513,73 @@ document.addEventListener('DOMContentLoaded', function () {
     .navbar-nav li {
         margin-right: 15px;
     }
-
     .navbar-nav a {
         text-decoration: none;
-        color: white;
+        color: #ffffff;
+        transition: color 0.3s;
     }
 
-    .navbar-brand,
-    .neon-button {
-        color: white;
-        text-decoration: none;
+    .navbar-nav a:hover {
+        color: #0044ff;
     }
-    .view-count {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-        }
 
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar-toggler:focus,
+    .navbar-toggler:hover {
+        outline: none;
+    }
+
+    .hire-btn {
+        background-color: #3498DB;
+        color: #1a202c;
+        transition: background-color 0.3s;
+    }
+
+    .hire-btn:hover {
+        background-color: rgb(0, 255, 55);
+    }
+    .nav-link{
+        font-size: 2vh;
+    }
+
+    #logo {
+        width: 40px;
+        height: auto;
+        border-radius: 20%;
+    }
 </style>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="logo2.png" alt="Your Logo" width="120" id="logo">
+        </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About Me</a>
+                    <a class="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
+                    <a class="nav-link" href="#services">Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
-            <div class="d-none d-lg-block">
-                <a href="#contact" class="btn btn-primary rounded-pill py-2 px-4 hire-btn">
+            <div id="wow" class="d-flex align-items-center">
+                <a id="buthire"href="#contact" class="btn btn-outline-light rounded-pill py-2 px-4 hire-btn">
                     <i class="fas fa-briefcase me-2"></i> Hire Me!
                 </a>
             </div>
@@ -595,22 +644,19 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
     AOS.init();
 </script>
 
 <section id="skills" class="content bg-light text-center py-16 relative overflow-hidden">
     <div id="particles-left" class="particles-container-left absolute left-0 top-0"></div>
-  
+    
     <div class="container mx-auto">
       <div class="row justify-center">
-        <div class="col-md-8 mb-8" data-aos="fade-up">
+          <div class="col-md-8 mb-8" data-aos="fade-up">
           <h2 class="section-title text-4xl font-bold mb-6">Tech Stack</h2>
           <div class="d-flex justify-content-around flex-wrap">
-            <div class="mb-6 skill-item aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+              <div class="mb-6 skill-item aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
               <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
                 <img src="java.png" alt="Java Logo" class="mr-4 skill-logo">
                 <strong class="mr-2">Java</strong>
@@ -622,22 +668,22 @@ document.addEventListener('DOMContentLoaded', function () {
             <img src="python.png" alt="Python Logo" class="mr-4 skill-logo">
             <strong class="mr-2">Python</strong>
             <span class="battery battery-advanced"></span>
-          </div>
+        </div>
         </div>
             <div class="mb-6 skill-item aos-init aos-animate" data-aos="fade-left" data-aos-delay="200">
-              <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
+                <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
                 <img src="c-.png" alt="C++ Logo" class="mr-4 skill-logo">
                 <strong class="mr-2">C++</strong>
                 <span class="battery battery-intermediate"></span>
-              </div>
             </div>
+        </div>
             <div class="mb-6 skill-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
               <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
-                <img src="html-5.png" alt="HTML" class="mr-4 skill-logo">
-                <strong class="mr-2">HTML</strong>
+                  <img src="html-5.png" alt="HTML" class="mr-4 skill-logo">
+                  <strong class="mr-2">HTML</strong>
                 <span class="battery battery-intermediate"></span>
-              </div>
             </div>
+        </div>
             <div class="mb-6 skill-item aos-init aos-animate" data-aos="fade-right" data-aos-delay="500">
               <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
                 <img src="machine-learning.png" alt="Machine Learning Logo" class="mr-4 skill-logo">
@@ -652,62 +698,61 @@ document.addEventListener('DOMContentLoaded', function () {
                 <span class="battery battery-intermediate"></span>
               </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+</div>
+</div>
     <style>
-      .skill-cell {
+        .skill-cell {
         border: 2px solid #ddd;
         padding: 10px;
         border-radius: 8px;
         width: 200px; 
         margin: 10px; 
-      }
+    }
   
-      .skill-cell:hover {
+    .skill-cell:hover {
         background-color: #ffae00;
       }
     </style>
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
-      gsap.registerPlugin(ScrollTrigger);
-  
+        gsap.registerPlugin(ScrollTrigger);
+        
       gsap.utils.toArray('.skill-item').forEach((item, i) => {
         gsap.from(item, {
-          opacity: 0,
-          y: 100,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
+            opacity: 0,
+            y: 100,
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
             end: '+=100',
             scrub: 0.5
-          }
+        }
         });
       });
-    </script>
+      </script>
   </section>
 
- 
 <section id="contact" class="content bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-16 mb-6" data-aos="fade-up">
     <div class="container mx-auto">
         <h2 class="section-title text-4xl font-bold mb-8" data-aos="fade-up">Contact</h2>
         <p class="section-description text-lg mb-12" data-aos-delay="200">Let's connect! Feel free to reach out to me:</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div class="mb-8" data-aos="zoom-out-right">
+            <div class="mb-8 ultra-legendary-element" data-aos="zoom-out-right">
                 <div class="contact-card p-6 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:bg-pink-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="gmail.png" alt="Email Icon" class="contact-icon mb-4 mx-auto">
                     <a href="mailto:itzmk06@gmail.com" class="contact-link text-lg font-semibold hover:underline">Email</a>
                 </div>
             </div>
-            <div class="mb-8" data-aos="zoom-out-up" data-aos-delay="200">
+            <div class="mb-8 ultra-legendary-element" data-aos="zoom-out-up" data-aos-delay="200">
                 <div class="contact-card p-6 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 hover:bg-green-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="linkedin.png" alt="LinkedIn Icon" class="contact-icon mb-4 mx-auto">
                     <a href="https://www.linkedin.com/in/manoj-kumar-m-3a1876263/" class="contact-link text-lg font-semibold hover:underline" target="_blank">LinkedIn Profile</a>
                 </div>
             </div>
-            <div class="mb-8" data-aos="zoom-out-left" data-aos-delay="400">
+            <div class="mb-8 ultra-legendary-element" data-aos="zoom-out-left" data-aos-delay="400">
                 <div class="contact-card p-6 bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gray-900 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="github.png" alt="GitHub Icon" class="contact-icon mb-4 mx-auto">
                     <a href="https://github.com/itzmk06/" class="contact-link text-lg font-semibold hover:underline" target="_blank">GitHub Profile</a>
@@ -724,12 +769,12 @@ document.addEventListener('DOMContentLoaded', function () {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
-
+        
         .contact-icon {
             width: 60px;
             height: 60px;
         }
-
+        
         .contact-link {
             color: #ffffff;
             transition: color 0.3s ease;
@@ -739,19 +784,49 @@ document.addEventListener('DOMContentLoaded', function () {
             color: #FFD700;
         }
 
-        Additional Animations
-        [data-aos="zoom-out-right"],
-        [data-aos="zoom-out-up"],
-        [data-aos="zoom-out-left"] {
-            opacity: 0;
-            transition: transform 1s ease, opacity 1s ease;
+        @keyframes zoom-out-right {
+            0% {
+                opacity: 0;
+                transform: translateX(100px) scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
         }
 
-        [data-aos="zoom-out-right"].aos-animate,
-        [data-aos="zoom-out-up"].aos-animate,
+        @keyframes zoom-out-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes zoom-out-left {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px) scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        [data-aos="zoom-out-right"].aos-animate {
+            animation: zoom-out-right 1s ease both;
+        }
+
+        [data-aos="zoom-out-up"].aos-animate {
+            animation: zoom-out-up 1s ease both;
+        }
+
         [data-aos="zoom-out-left"].aos-animate {
-            opacity: 1;
-            transform: translate(0, 0);
+            animation: zoom-out-left 1s ease both;
         }
         #contact {
             min-height: 100vh;
@@ -760,20 +835,11 @@ document.addEventListener('DOMContentLoaded', function () {
             justify-content: center;
             align-items: center;
         }
+
         #contact .grid {
             max-width: 800px;
             margin: auto;
         }
-        [data-aos^="zoom-out"] {
-            opacity: 0;
-            transition: transform 1s ease, opacity 1s ease;
-        }
-
-        [data-aos^="zoom-out"].aos-animate {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-
     </style>
 </section>
 
@@ -783,46 +849,53 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="flex justify-center space-x-4 items-center">
         </div>
     </div>
-    <style>
-        .navbar {
-    display: flex;
-    font-size: 10px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0; 
-    background-color: #0000; 
-}
-
-        footer {
-            border-top: 1px solid rgba(3, 0, 0, 0.2);
-        }
-
-        .fab {
-            font-size: 24px;
-        }
-
-        .fab:hover {
-            color: #FFD700; 
-        }
-
-        .fab:active {
-            transform: scale(0.95); 
-        }
-    </style>
 </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<style>
+    footer {
+        border-top: 1px solid rgba(3, 0, 0, 0.2);
+        color: #ffffff;
+        background-color: #333;
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script>
+    footer p {
+        margin: -2vh; 
+    }
+
+    .fab {
+        font-size: 24px;
+    }
+
+    .fab:hover {
+        color: #FFD700; 
+    }
+
+    .fab:active {
+        transform: scale(0.95); 
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script>
     AOS.init({
         duration: 800,
         anchorPlacement: 'center-bottom',
         once: false,
     });
 </script>
+
+<script src="
+https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js
+"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script.js"></script>
 </body>
 </html>
