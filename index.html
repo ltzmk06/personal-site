@@ -676,7 +676,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
                   <img src="html-5.png" alt="HTML" class="mr-4 skill-logo">
                   <strong class="mr-2">HTML</strong>
-                <span class="battery battery-intermediate"></span>
+                <span class="battery battery-advanced"></span>
             </div>
         </div>
             <div class="mb-6 skill-item aos-init aos-animate" data-aos="fade-right" data-aos-delay="500">
@@ -685,13 +685,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 <strong class="mr-2">Machine Learning</strong>
                 <span class="battery battery-intermediate"></span>
               </div>
-            </div>            
+            </div>  
             <div class="mb-6 skill-item aos-init aos-animate" data-aos="fade-right data-aos-delay="500">
-              <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
-                <img src="css-3.png" alt="css Logo" class="mr-4 skill-logo">
-                <strong class="mr-2">CSS</strong>
-                <span class="battery battery-intermediate"></span>
-              </div>
+                <div class="flex items-center skill-cell border border-gray-300 p-4 rounded transition duration-300 hover:bg-gray-100 aos-init aos-animate">
+                  <img src="css-3.png" alt="css Logo" class="mr-4 skill-logo">
+                  <strong class="mr-2">CSS</strong>
+                  <span class="battery battery-advanced"></span>
+                </div>
+
             </div>
         </div>
     </div>
@@ -700,53 +701,142 @@ document.addEventListener('DOMContentLoaded', function () {
     <style>
         .skill-cell {
         border: 2px solid #ddd;
+        background-color: white;
         padding: 10px;
         border-radius: 8px;
         width: 200px; 
         margin: 10px; 
+        box-shadow: 10px 10px 10px #3333339c;
     }
   
     .skill-cell:hover {
-        background-color: #ffae00;
+        background-color: #2bff00;
       }
+      .skill-cell {
+            border: 2px solid #ddd;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            width: 200px;
+            margin: 10px;
+            box-shadow: 10px 10px 10px #3333339c;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-cell:hover {
+            background-color: #2bff00;
+        }
+        .skill-cell {
+            border: 2px solid #ddd;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            width: 200px;
+            margin: 10px;
+            box-shadow: 10px 10px 10px #3333339c;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-cell:hover {
+            background-color: #2bff00;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .flex-wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
     </style>
   
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        
-      gsap.utils.toArray('.skill-item').forEach((item, i) => {
-        gsap.from(item, {
-            opacity: 0,
-            y: 100,
-            scrollTrigger: {
-                trigger: item,
-                start: 'top 80%',
-            end: '+=100',
-            scrub: 0.5
-        }
-        });
-      });
-      </script>
-  </section>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script>
+    const engine = Matter.Engine.create();
+    const world = engine.world;
+    engine.world.gravity.y = 0.5;
+    engine.world.frictionAir = 0.05;
+    const ground = Matter.Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 50, window.innerWidth, 100, {
+        isStatic: true,
+        render: { visible: false }
+    });
+    const ceiling = Matter.Bodies.rectangle(window.innerWidth / 2, -50, window.innerWidth, 100, {
+        isStatic: true,
+        render: { visible: false }
+    });
+    const leftWall = Matter.Bodies.rectangle(-50, window.innerHeight / 2, 100, window.innerHeight, {
+        isStatic: true,
+        render: { visible: false }
+    });
+    const rightWall = Matter.Bodies.rectangle(window.innerWidth + 50, window.innerHeight / 2, 100, window.innerHeight, {
+        isStatic: true,
+        render: { visible: false }
+    });
+    Matter.World.add(world, [ground, ceiling, leftWall, rightWall]);
+    Matter.Engine.run(engine);
 
-<section id="contact" class="content bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-16 mb-6" data-aos="fade-up">
+    const cards = document.querySelectorAll('.skill-cell');
+    cards.forEach(card => {
+        const xPos = Math.random() * (window.innerWidth - card.offsetWidth);
+        const yPos = Math.random() * (window.innerHeight - card.offsetHeight);
+        const cardBody = Matter.Bodies.rectangle(xPos, yPos, card.offsetWidth, card.offsetHeight, {
+            render: {
+                sprite: { texture: card.querySelector('img').src }
+            }
+        });
+        Matter.World.add(world, cardBody);
+    });
+
+    Matter.Events.on(engine, 'beforeUpdate', function(event) {
+        const bodies = Matter.Composite.allBodies(world);
+        bodies.forEach((body, i) => {
+            if (body.render.sprite) {
+                const card = cards[i];
+                card.style.transform = `translate(${body.position.x - card.offsetWidth / 2}px, ${body.position.y - card.offsetHeight / 2}px)`;
+                card.style.opacity = body.render.opacity;
+            }
+        });
+    });
+</script>
+  </section>
+ 
+  <section id="contact" class="content bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white py-16 mb-6" data-aos="fade-up">
     <div class="container mx-auto">
         <h2 class="section-title text-4xl font-bold mb-8" data-aos="fade-up">Contact</h2>
         <p class="section-description text-lg mb-12" data-aos-delay="200">Let's connect! Feel free to reach out to me:</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div class="mb-8 ultra-legendary-element" data-aos="zoom-out-right">
+            <div class="mb-8" data-aos="zoom-out-right">
                 <div class="contact-card p-6 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:bg-pink-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="gmail.png" alt="Email Icon" class="contact-icon mb-4 mx-auto">
                     <a href="mailto:itzmk06@gmail.com" class="contact-link text-lg font-semibold hover:underline">Email</a>
                 </div>
             </div>
-            <div class="mb-8 ultra-legendary-element" data-aos="zoom-out-up" data-aos-delay="200">
+            <div class="mb-8" data-aos="zoom-out-up" data-aos-delay="200">
                 <div class="contact-card p-6 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 hover:bg-green-600 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="linkedin.png" alt="LinkedIn Icon" class="contact-icon mb-4 mx-auto">
                     <a href="https://www.linkedin.com/in/manoj-kumar-m-3a1876263/" class="contact-link text-lg font-semibold hover:underline" target="_blank">LinkedIn Profile</a>
                 </div>
             </div>
-            <div class="mb-8 ultra-legendary-element" data-aos="zoom-out-left" data-aos-delay="400">
+            <div class="mb-8" data-aos="zoom-out-left" data-aos-delay="400">
                 <div class="contact-card p-6 bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gray-900 transition-all duration-300 rounded-lg text-center transform hover:scale-105 hover:rotate-3">
                     <img src="github.png" alt="GitHub Icon" class="contact-icon mb-4 mx-auto">
                     <a href="https://github.com/itzmk06/" class="contact-link text-lg font-semibold hover:underline" target="_blank">GitHub Profile</a>
@@ -763,12 +853,12 @@ document.addEventListener('DOMContentLoaded', function () {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
-        
+
         .contact-icon {
             width: 60px;
             height: 60px;
         }
-        
+
         .contact-link {
             color: #ffffff;
             transition: color 0.3s ease;
@@ -778,64 +868,45 @@ document.addEventListener('DOMContentLoaded', function () {
             color: #FFD700;
         }
 
-        @keyframes zoom-out-right {
-            0% {
-                opacity: 0;
-                transform: translateX(100px) scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
+        Additional Animations
+        [data-aos="zoom-out-right"],
+        [data-aos="zoom-out-up"],
+        [data-aos="zoom-out-left"] {
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease;
         }
 
-        @keyframes zoom-out-up {
-            0% {
-                opacity: 0;
-                transform: translateY(100px) scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes zoom-out-left {
-            0% {
-                opacity: 0;
-                transform: translateX(-100px) scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-        }
-
-        [data-aos="zoom-out-right"].aos-animate {
-            animation: zoom-out-right 1s ease both;
-        }
-
-        [data-aos="zoom-out-up"].aos-animate {
-            animation: zoom-out-up 1s ease both;
-        }
-
+        [data-aos="zoom-out-right"].aos-animate,
+        [data-aos="zoom-out-up"].aos-animate,
         [data-aos="zoom-out-left"].aos-animate {
-            animation: zoom-out-left 1s ease both;
+            opacity: 1;
+            transform: translate(0, 0);
         }
         #contact {
-            min-height: 100vh;
+            overflow-y:hidden ;
+            height: 120%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-
         #contact .grid {
             max-width: 800px;
             margin: auto;
         }
+        [data-aos^="zoom-out"] {
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        [data-aos^="zoom-out"].aos-animate {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
     </style>
 </section>
+
 
 <footer class="bottom text-center py-8 bg-gradient-to-t from-gray-800 via-gray-900 to-black" data-aos="fade-up">
     <div class="container mx-auto">
@@ -869,6 +940,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 </style>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

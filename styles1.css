@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-body {
+html,body {
+    width: 100%;
+    height: 100%;
     font-family: 'Merienda', cursive;
     /* font-family: "Satisfy", cursive; */
         /* font-family: "Julee", cursive; */
@@ -686,6 +688,7 @@ section {
     position: relative;
     z-index: 3;
     height: 100%;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     text-align: center; 
@@ -719,4 +722,46 @@ footer {
 
 body::-webkit-scrollbar{
     display: none;
+}
+
+@media screen and (max-width: 768px){
+    header{
+        font-size: 2vh;
+        overflow-x: hidden;
+    }
+.navbar-brand img {
+    max-width: 100%;
+}
+
+
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    html, body {
+        touch-action: pan-y; 
+        overscroll-behavior-x: none; 
+    }
+    
+    .navbar-collapse {
+        background-color: #343a40;
+        padding: 1rem;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .navbar-toggler {
+        order: -1;
+    }
+
+    #wow {
+        margin-top: 1rem;
+    }
 }

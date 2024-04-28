@@ -25,3 +25,23 @@ Shery.mouseFollower({
     multiplier: 0.1,
   });
 
+// JavaScript code to prevent horizontal overscrolling on touch devices
+document.addEventListener('DOMContentLoaded', function() {
+  var startX;
+  var startY;
+
+  document.addEventListener('touchstart', function(event) {
+      startX = event.touches[0].pageX;
+      startY = event.touches[0].pageY;
+  });
+
+  document.addEventListener('touchmove', function(event) {
+      var deltaX = event.touches[0].pageX - startX;
+      var deltaY = event.touches[0].pageY - startY;
+
+      // Check if the horizontal swipe distance is greater than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          event.preventDefault(); // Prevent horizontal overscrolling
+      }
+  });
+});
