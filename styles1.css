@@ -765,3 +765,36 @@ body::-webkit-scrollbar{
         margin-top: 1rem;
     }
 }
+.navbar {
+    cursor: grab;
+}
+
+:root {
+    --text-color-light: #000;
+    --text-color-dark: #fff;
+}
+
+.nav-link {
+    color: var(--text-color-dark);
+}
+
+.bg-dark .nav-link {
+    color: var(--text-color-light);
+}
+
+.bg-blue .nav-link {
+    color: var(--text-color-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color-light: #fff;
+        --text-color-dark: #000;
+    }
+}
+nav{
+    padding: 0.01vh;
+    position: fixed;
+    z-index: 10001111;
+    top: 0;
+}
