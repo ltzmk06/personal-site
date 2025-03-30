@@ -731,8 +731,6 @@ nav{
     z-index: 10001111;
     top: 0;
 }
-
-/* ⚡ Skill Container */
 .skills-container {
     display: flex;
     gap: 20px;
@@ -740,7 +738,6 @@ nav{
     justify-content: center;
 }
 
-/* 💎 Skill Cell with Glassmorphism */
 .skill-cell {
     cursor: pointer;
     font-family: "Dekko", cursive;
@@ -754,10 +751,33 @@ nav{
     transition: all 0.4s ease-in-out;
 }
 
-/* 🌟 Hover Animation */
 .skill-cell:hover {
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(-5px);
 }
+
+@media (max-width: 768px) {
+    #navbar {
+        display: none;
+    }
+}
+
+#navbar {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.navbar {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 
