@@ -254,39 +254,6 @@ body {
     opacity: 100 !important;
 }
 
-
-.battery:before,
-.battery:after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    bottom: 1px;
-}
-
-.battery:before {
-    left: 1px;
-    width: 20px;
-    background-color: #4CAF50;
-}
-
-.battery-intermediate:before {
-    left: 1px;
-    width: 14px;
-    background-color: #ffd103;; 
-}
-
-.battery-basic:before {
-    left: 1px;
-    width: 14px;
-    background-color: #ffd103; 
-}
-
-.battery-learning:before {
-    left: 1px;
-    width: 10px;
-    background-color: #ff9900; 
-}
-
 #contact {
     padding: 80px 0; 
 }
@@ -321,9 +288,6 @@ body {
     font-weight: bold;
 }
 
-#contact .contact-link:hover {
-    text-decoration: underline;
-}
 .navbar-nav a.nav-link {
     cursor: pointer;
     transition: color 0.3s;
@@ -444,18 +408,6 @@ body {
     cursor: pointer;
 }
 
-.neon-button:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #00bfff, #0082e6, #00bfff, #0082e6);
-    border-radius: 10px;
-    z-index: -1;
-    animation: neon 1.5s linear infinite;
-}
 
 @keyframes neon {
     0%,
@@ -503,15 +455,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.battery {
-    display: inline-block;
-    width: 20px;
-    height: 10px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    position: relative;
-    margin-left: 10px;
-}
 .aos-init, .aos-animate {
     opacity: 1 !important;
     visibility: visible !important;
@@ -732,16 +675,6 @@ body::-webkit-scrollbar{
 .navbar-brand img {
     max-width: 100%;
 }
-
-
-    html,body{
-        width: 100%;
-        height: 100%;
-    }
-    html, body {
-        touch-action: pan-y; 
-        overscroll-behavior-x: none; 
-    }
     
     .navbar-collapse {
         background-color: #343a40;
@@ -798,3 +731,33 @@ nav{
     z-index: 10001111;
     top: 0;
 }
+
+/* ⚡ Skill Container */
+.skills-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 💎 Skill Cell with Glassmorphism */
+.skill-cell {
+    cursor: pointer;
+    font-family: "Dekko", cursive;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 15px 25px;
+    font-size: 1.5rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+}
+
+/* 🌟 Hover Animation */
+.skill-cell:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
